@@ -17,18 +17,16 @@ namespace AvailabilityRooms.Controllers
             _hotelService = hotelService;
         }
 
-        //En un controlador los métodos cambian de nombre, y realmente se llaman ACCIONES (ACTIONS) - Si es una API, se denomina ENDPOINT.
-        //Todo Endpoint retorna un ActionResult, significa que retorna el resultado de una ACCIÓN.
+        
 
         [HttpGet, ActionName("Get")]
-        [Route("Get")] //Aquí concateno la URL inicial: URL = api/countries/get
+        [Route("Get")] 
         public async Task<ActionResult<IEnumerable<Hotel>>> GetHotelAsync()
 
         {
-            var hotels = await _hotelService.GetHotelAsync(); //Aquí estoy yendo a mi capa de Domain para traerme la lista de países
+            var hotels = await _hotelService.GetHotelAsync();
 
-            //El método Any() significa si hay al menos un elemento.
-            //El Método !Any() significa si no hay absoluta/ nada.
+           
             if (hotels == null || !hotels.Any())
             {
                 return NotFound(); //NotFound = 404 Http Status Code
@@ -39,7 +37,7 @@ namespace AvailabilityRooms.Controllers
 
 
         [HttpGet, ActionName("Get")]
-        [Route("GetHotelByRoom/{id}")] //URL: api/countries/get
+        [Route("GetHotelByRoom/{id}")] 
         public async Task<ActionResult<Hotel>> GetHotelByRoomAsync(Guid id)
 
         {

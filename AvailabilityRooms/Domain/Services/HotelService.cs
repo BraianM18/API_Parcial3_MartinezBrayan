@@ -16,7 +16,7 @@ namespace AvailabilityRooms.Domain.Services
             _context = context;
         }
 
-        //Listar
+        //List hotels with their respective available rooms
         public async Task<IEnumerable<Hotel>> GetHotelAsync()
            
         {
@@ -26,37 +26,18 @@ namespace AvailabilityRooms.Domain.Services
                 .ToListAsync();
         }
 
-        //public async Task<Hotel> CreateCountryAsync(Hotel hotel)
-        //{
-        //    try
-        //    {
-        //        hotel.Id = Guid.NewGuid(); //Así se asigna automáticamente un ID a un nuevo registro
-        //        hotel.CreatedDate = DateTime.Now;
 
-        //        _context.Hotels.Add(hotel); //Aquí estoy creando el objeto Country en el contexto de mi BD
-        //        await _context.SaveChangesAsync(); //Aquí ya estoy yendo a la BD para hacer el INSERT en la tabla Countries
-
-        //        return hotel;
-        //    }
-        //    catch (DbUpdateException dbUpdateException)
-        //    {
-        //        //Esta exceptión me captura un mensaje cuando el país YA EXISTE (Duplicados)
-        //        throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message); //Coallesences Notation --> ??
-        //    }
-        //}
-
-        //Obtener hotel por ID con sus respectivas habitaciones
+        //Get hotel by ID with their respective available rooms
 
         public async Task<Hotel> GetHotelByRoomAsync(Guid id)
 
         {
-            //var hotels = await _context.Hotels.Include(h => h.Rooms.Where(r => r.Availability == true)).ToListAsync();
             return await _context.Hotels
                 .Include(r => r.Rooms.Where(a => a.Availability == true))
                 .FirstOrDefaultAsync(h => h.Id == id);
         }
 
-        //Obtener hotel por Ciudad con sus respectivas habitaciones disponibles
+        //Obtain hotel by city with their respective available rooms
         public async Task<Hotel> GetHotelByCityAsync(string city)
         {
             return await _context.Hotels
@@ -65,7 +46,7 @@ namespace AvailabilityRooms.Domain.Services
         }
 
 
-        //Modificar la calificacion de un hotel
+        //Modify the rating of a hotel
 
         public async Task<Hotel> EditHotelAsync(Guid id, int stars)
         {
@@ -88,16 +69,16 @@ namespace AvailabilityRooms.Domain.Services
             }
         }
 
-        //Eliminar hotel y sus habitaciones
+        //Delete hotel and its rooms
         public async Task<Hotel> DeleteHotelAsync(Guid id)
         {
             try
             {
                 
                 var hotels = await _context.Hotels
-                    .Include(c => c.Rooms) //Cascade removing
+                    .Include(c => c.Rooms) 
                     .FirstOrDefaultAsync(c => c.Id == id);
-                if (hotels == null) return null; //Si el país no existe, entonces me retorna un NULL
+                if (hotels == null) return null;
 
                 _context.Hotels.Remove(hotels);
                 await _context.SaveChangesAsync();

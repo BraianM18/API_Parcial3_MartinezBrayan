@@ -21,7 +21,7 @@ namespace AvailabilityRooms.DAL.Entities
         public bool Availability { get; set; } = false;
 
         [Display(Name = "Id Hotel")]
-        public Guid HotelId { get; set; } // Clave foránea para relacionar con Hotel
+        public Guid HotelId { get; set; } //Foreign key to relate to Hotel
         public Hotel hotel { get; set; }
     }
 }

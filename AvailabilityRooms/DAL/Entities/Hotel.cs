@@ -9,8 +9,8 @@ namespace AvailabilityRooms.DAL.Entities
         [Required]
         public Guid Id { get; set; }
 
-        [Display(Name = "Hotel")] // Para yo pintar el nombre bien bonito en el FrontEnd
-        [MaxLength(50, ErrorMessage = "El campo {1} debe tener máximo {1} caracteres")] //Longitud de caracteres máxima que esta propiedad me permite tener, ejem varchar(50)
+        [Display(Name = "Hotel")] 
+        [MaxLength(50, ErrorMessage = "El campo {1} debe tener máximo {1} caracteres")] 
         [Required(ErrorMessage = "¡El campo {1} es obligatorio!")]
         public string Name { get; set; }
 
@@ -35,7 +35,8 @@ namespace AvailabilityRooms.DAL.Entities
         public string City { get; set; }
 
         [Display(Name = "Habitaciones")]
-        //Relación con Rooms
+
+        //Relationship with Rooms
         public List<Room>? Rooms { get; set; }
     }
 }
