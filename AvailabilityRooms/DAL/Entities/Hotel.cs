@@ -17,9 +17,9 @@ namespace AvailabilityRooms.DAL.Entities
         public string Address { get; set; }
 
         [Display(Name = "Telefono")]
-        [MaxLength(50, ErrorMessage = "El campo {3} debe tener máximo {1} caracteres")]
+        [MaxLength(10, ErrorMessage = "El campo {3} debe tener máximo {1} caracteres")]
         [Required(ErrorMessage = "¡El campo {3} es obligatorio!")]
-        public string Phone { get; set; }
+        public int Phone { get; set; }
 
         [Display(Name = "Estrellas")]
         [MaxLength(50, ErrorMessage = "El campo {4} debe tener máximo {1} caracteres")]

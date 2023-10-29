@@ -13,7 +13,7 @@ namespace AvailabilityRooms.DAL.Entities
         public int Number { get; set; }
 
         [Display(Name = "Capacidad máxima de la habitación")]
-        [MaxLength(3, ErrorMessage = "El campo {2} debe tener máximo {1} caracteres")]
+        [MaxLength(6 , ErrorMessage = "El campo {2} debe tener máximo {1} caracteres")]
         [Required(ErrorMessage = "¡El campo {2} es obligatorio!")]
         public int MaxGuests { get; set; }
 
