@@ -16,13 +16,14 @@ namespace AvailabilityRooms.Domain.Services
             _context = context;
         }
 
-        public async Task<string> GetRoomsByRoomNumberAsync(int RoomNumber)
+        public async Task<string> GetRoomsByRoomNumberAsync(Guid id, int RoomNumber)
         {
 
-            var room = await _context.Rooms
-                .FirstOrDefaultAsync(rn => rn.Number == RoomNumber);
             var hotel = await _context.Hotels
-                .FirstOrDefaultAsync(h => h.Id == room.HotelId);
+                .FirstOrDefaultAsync(h => h.Id == id);
+            var room = await _context.Rooms
+                .FirstOrDefaultAsync(rn => rn.Number == RoomNumber && rn.HotelId == hotel.Id);
+
 
             if (!room.Availability) return "Room " + room.Number + " of the " + hotel.Name + " already booked ";
             else return room.ToString();

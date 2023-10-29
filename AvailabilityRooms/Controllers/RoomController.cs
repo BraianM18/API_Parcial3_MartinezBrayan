@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AvailabilityRooms.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("room/[controller]")]
     public class RoomController : Controller
     {
         private readonly IRoomService _roomService;
@@ -15,10 +15,12 @@ namespace AvailabilityRooms.Controllers
             _roomService = roomService;
         }
 
-        public async Task<ActionResult<Room>> GetRoomsByRoomNumberAsync(int RoomNumber)
+        [HttpGet, ActionName("Get")]
+        [Route("Get")]
+        public async Task<ActionResult<Room>> GetRoomsByRoomNumberAsync(Guid id, int RoomNumber)
         {
             // Lógica para obtener la habitación por el número de habitación.
-            var room = await _roomService.GetRoomsByRoomNumberAsync(RoomNumber);
+            var room = await _roomService.GetRoomsByRoomNumberAsync(id, RoomNumber);
 
             if (room == null)
             {

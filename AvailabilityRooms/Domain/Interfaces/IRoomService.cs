@@ -5,7 +5,7 @@ namespace AvailabilityRooms.Domain.Interfaces
     public interface IRoomService
     {
 
-        Task<string> GetRoomsByRoomNumberAsync(int RoomNumber);
+        Task<string> GetRoomsByRoomNumberAsync(Guid id, int RoomNumber);
 
 
     }
