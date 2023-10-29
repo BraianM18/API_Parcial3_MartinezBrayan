@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AvailabilityRooms.Migrations
 {
-    public partial class InitialDb : Migration
+    public partial class numer3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
