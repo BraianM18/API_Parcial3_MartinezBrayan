@@ -5,7 +5,7 @@ namespace AvailabilityRooms.DAL.Entities
     public class Room : AuditBase
     {
 
-        public Guid Id { get; set; }
+        
 
         [Display(Name = "Número de habitación")]
         [MaxLength(50, ErrorMessage = "El campo {1} debe tener máximo {1} caracteres")]

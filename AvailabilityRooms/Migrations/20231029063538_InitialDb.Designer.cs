@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AvailabilityRooms.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20231029063030_InitialDb")]
+    [Migration("20231029063538_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

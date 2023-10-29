@@ -4,7 +4,7 @@ namespace AvailabilityRooms.DAL.Entities
 {
     public class Hotel : AuditBase
     {
-        public Guid Id { get; set; }
+       
 
         [Display(Name = "Hotel")] // Para yo pintar el nombre bien bonito en el FrontEnd
         [MaxLength(50, ErrorMessage = "El campo {1} debe tener máximo {1} caracteres")] //Longitud de caracteres máxima que esta propiedad me permite tener, ejem varchar(50)

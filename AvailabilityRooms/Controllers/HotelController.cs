@@ -64,7 +64,7 @@ namespace AvailabilityRooms.Controllers
         //}
 
         [HttpGet, ActionName("Get")]
-        [Route("GetById/{id}")] //URL: api/countries/get
+        [Route("GetHotelByRoom/{id}")] //URL: api/countries/get
         public async Task<ActionResult<Hotel>> GetHotelByRoomAsync(Guid id)
 
         {
@@ -78,7 +78,7 @@ namespace AvailabilityRooms.Controllers
         }
 
         [HttpGet, ActionName("Get")]
-        [Route("GetByName/{name}")] //URL: api/countries/get
+        [Route("GetHotelByCity/{city}")] //URL: api/countries/get
         public async Task<ActionResult<Hotel>> GetHotelByCityAsync(string city)
 
         {
