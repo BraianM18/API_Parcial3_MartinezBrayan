@@ -6,6 +6,7 @@ namespace AvailabilityRooms.Domain.Interfaces
     {
 
         Task<string> GetRoomsByRoomNumberAsync(Guid id, int RoomNumber);
+       
 
 
     }

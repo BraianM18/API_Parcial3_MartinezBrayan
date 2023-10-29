@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AvailabilityRooms.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20231029153401_numer3")]
-    partial class numer3
+    [Migration("20231029192626_num3")]
+    partial class num3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

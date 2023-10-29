@@ -16,6 +16,7 @@ namespace AvailabilityRooms.Domain.Services
             _context = context;
         }
 
+       
         public async Task<string> GetRoomsByRoomNumberAsync(Guid id, int RoomNumber)
         {
 
@@ -27,8 +28,11 @@ namespace AvailabilityRooms.Domain.Services
 
             if (!room.Availability) return "Room " + room.Number + " of the " + hotel.Name + " already booked ";
             else return room.ToString();
-        }
 
+
+
+
+        }
 
 
     }
